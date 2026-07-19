@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', sans-serif;
+  --font-title: 'Outfit', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #080a0f;
+  color: #f3f4f6;
+  overflow-x: hidden;
+  transition: font-size 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Accessibility Focus States */
+*:focus-visible {
+  outline: 3px solid #f2a900 !important;
+  outline-offset: 3px !important;
+}
+
+/* Large Font Mode Classes */
+.large-font-mode {
+  font-size: 1.15rem;
+}
+.large-font-mode h1 {
+  font-size: 2.75rem;
+}
+.large-font-mode h2 {
+  font-size: 2.25rem;
+}
+.large-font-mode h3 {
+  font-size: 1.75rem;
+}
+.large-font-mode p, .large-font-mode li, .large-font-mode span, .large-font-mode button, .large-font-mode input {
+  font-size: 1.25rem;
+}
+
+/* High Contrast Mode Classes */
+.high-contrast-mode {
+  --fifa-dark: #000000;
+  --fifa-card: #000000;
+  --fifa-border: #ffffff;
+  --fifa-text: #ffffff;
+  --fifa-textMuted: #ffffff;
+  --fifa-primary: #0000ff;
+  --fifa-accent: #ffff00;
+  
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.high-contrast-mode * {
+  border-color: #ffffff !important;
+}
+
+.high-contrast-mode button, 
+.high-contrast-mode a, 
+.high-contrast-mode input {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+.high-contrast-mode button:hover, 
+.high-contrast-mode a:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Glassmorphism custom styling */
+.glass-card {
+  background: rgba(22, 27, 38, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Pulse animation for heatmap nodes */
+@keyframes heatmap-pulse-low {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.5; }
+}
+
+@keyframes heatmap-pulse-medium {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.3); opacity: 0.8; }
+}
+
+@keyframes heatmap-pulse-high {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.4); opacity: 1; }
+}
+
+@keyframes heatmap-pulse-critical {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.6); opacity: 1; }
+}
+
+.pulse-low {
+  animation: heatmap-pulse-low 3s infinite ease-in-out;
+}
+.pulse-medium {
+  animation: heatmap-pulse-medium 2.5s infinite ease-in-out;
+}
+.pulse-high {
+  animation: heatmap-pulse-high 2s infinite ease-in-out;
+}
+.pulse-critical {
+  animation: heatmap-pulse-critical 1.5s infinite ease-in-out;
+}
+
+/* Skip to Content button (A11y best practice) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #f2a900;
+  color: #0e1118;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0e1118;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3346;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1063e5;
+}
